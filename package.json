@@ -1,0 +1,25 @@
+{
+  "name": "random-quote",
+  "version": "1.0.0",
+  "description": "Build a single page app that provides a random quote",
+  "main": "scripts/main.js",
+  "scripts": {
+    "start": "node scripts/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidpham5/random-quote.git"
+  },
+  "author": "David Pham",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidpham5/random-quote/issues"
+  },
+  "homepage": "https://github.com/davidpham5/random-quote",
+  "devDependencies": {
+    "axios": "^0.17.1",
+    "express": "^4.16.2",
+    "hbs": "^4.0.1",
+    "html-to-text": "^3.3.0"
+  }
+}
