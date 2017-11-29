@@ -9,7 +9,9 @@ var url = 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[p
 
 var app = express();
 var port = process.env.PORT || 3000;
-
+app.set('views engine', 'hbs');
+// point to scripts and styles in public directory
+app.use(express.static('public'));
 // var fetchQuote = function() {
 //     axios(url).then(function(response) {
 //         var data = response.data[0];
@@ -22,33 +24,31 @@ var port = process.env.PORT || 3000;
 //         return quote;
 //     });
 // }
-app.set('views engine', 'hbs');
-app.set('css', __dirname + '/styles');
+
 
 app.get('/', function(request, resp) {
-    axios(url).then(function(response) {
-        var data = response.data[0];
-        var title = htmlToText.fromString(data.title);
-        var content = htmlToText.fromString(data.content)
-        
-        var quote = {
-            title: title,
-            content: content,
-            link: data.link
-        };
-        
-        resp.render('index.hbs', {
-            quote: quote
-        });
-    });
+	axios(url).then(function(response) {
+		var data = response.data[0];
+		var title = htmlToText.fromString(data.title);
+		var content = htmlToText.fromString(data.content)
+		
+		var quote = {
+			title: title,
+			content: content,
+			link: data.link
+		};
+		
+		resp.render('index.hbs', {
+			quote: quote
+		});
+	});
 });
 
 
 app.listen(port, () => {
-    console.log(`Server is up on port: ${port}`);
+	console.log(`Server is up on port: ${port}`);
 });
 
 module.exports = {
-    app: app,
-    //getQuote: getQuote,
+	app: app
 }
