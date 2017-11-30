@@ -15,11 +15,16 @@
   <body>
 	 
 	  <section class="container">
-		  <div class="quote">
-				<h1>{{ quote.title }}</h1>
-				<div class="content">{{quote.content}}</div>
-		  </div>
-		  {{!-- <button class="btn btn-primary btn-large">Hit me</button> --}}
+			<div class="row">
+				<div class="col">
+					<div class="quote">
+						<h1>{{ quote.title }}</h1>
+						<div class="content">{{quote.content}}
+					</div>
+					<button class="btn btn-primary btn-large" onclick="foo()">Hit me</button>
+				</div>	
+				</div>
+			</div> 
 	  </section>
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->

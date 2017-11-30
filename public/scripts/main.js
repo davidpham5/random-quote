@@ -12,35 +12,38 @@ var port = process.env.PORT || 3000;
 app.set('views engine', 'hbs');
 // point to scripts and styles in public directory
 app.use(express.static('public'));
-// var fetchQuote = function() {
-//     axios(url).then(function(response) {
-//         var data = response.data[0];
-//         var quote = {
-//             title: data.title,
-//             content: data.content,
-//             link: data.link
-//         };
-//         //console.log(quote);
-//         return quote;
-//     });
-// }
 
+var quote = {};
 
-app.get('/', function(request, resp) {
-	axios(url).then(function(response) {
-		var data = response.data[0];
+var getNewQuote = function() {
+    var promise = axios(url).then(function(response) {
+        var data = response.data[0];
 		var title = htmlToText.fromString(data.title);
 		var content = htmlToText.fromString(data.content)
 		
-		var quote = {
-			title: title,
-			content: content,
-			link: data.link
-		};
+		quote.title = title;
+		quote.content = content;
+		quote.link = data.link;
 		
+		response.quote = quote;	
+		return response.quote;
+	});
+	return promise;
+}
+function foo() {
+	console.log('foo');
+}
+
+app.get('/', function(request, resp) {
+	getNewQuote().then(function(response) {
 		resp.render('index.hbs', {
-			quote: quote
+			quote: response,
+			// getNewQuote: getNewQuote,
+			// foo: foo
 		});
+	})
+	.catch(function(error) {
+		console.log(error);
 	});
 });
 
