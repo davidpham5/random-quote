@@ -4,7 +4,7 @@
   "description": "Build a single page app that provides a random quote",
   "main": "scripts/main.js",
   "scripts": {
-    "start": "nodemon main.js"
+    "start": "node main.js"
   },
   "repository": {
     "type": "git",
