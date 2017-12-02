@@ -16,15 +16,11 @@
     "url": "https://github.com/davidpham5/random-quote/issues"
   },
   "homepage": "https://github.com/davidpham5/random-quote",
-  "devDependencies": {
+  "dependencies": {
+    "nodemon": "^1.12.1",
     "axios": "^0.17.1",
     "express": "^4.16.2",
     "hbs": "^4.0.1",
     "html-to-text": "^3.3.0"
-  },
-  "dependencies": {
-    "nodeman": "^1.1.2",
-    "nodemon": "^1.12.1",
-    "supervisor": "^0.12.0"
   }
 }
