@@ -10,7 +10,8 @@ app.set('views engine', 'hbs');
 // point to scripts and styles in public directory
 app.use(express.static('public'));
 
-app.use('/', require('./routes/index'))
+//app.use('/', require('./routes/index'))
+app.use('/', require('./routes/quote'))
 app.use('/api/quote', require('./routes/api/quote'))
 
 app.listen(port, () => {
