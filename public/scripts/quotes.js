@@ -1,3 +1,4 @@
+'use strict';
 
 $(function() {
 	$('#hit-me-real-good').bind('click', getQuote)
@@ -5,9 +6,9 @@ $(function() {
 	function getQuote() {
 		$.get('api/quote', displayQuote)
 	}
-
-	function displayQuote(q) {
-		$('#quote-title').html(q.title)
-		$('#quote-content').html(q.content)
+	
+	function displayQuote(quote) {	
+		$('#quote-title').html(quote.title)
+		$('#quote-content').html(quote.content)
 	}
 })

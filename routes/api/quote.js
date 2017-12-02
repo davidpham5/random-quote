@@ -1,8 +1,8 @@
-
-var express = require('express')
-var router = express.Router()
+'use strict';
+var express = require('express');
+var router = express.Router();
 var axios = require('axios');
-var Quote = require('./../../models/quote')
+var Quote = require('../../models/quote');
 
 router.get('/', function(req, res) {
 
